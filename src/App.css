@@ -1,0 +1,44 @@
+body {
+    margin:0%
+}
+
+.homePage {
+    padding-left: 205px;
+}
+
+.mainPage {
+    width: 100%;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+}
+
+.pageContents {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.sidebar {
+    width: 200px;
+    height: 100vh;
+    background-color: black;
+    color: white;
+    margin-right: 0px;
+    position: fixed;
+  }
+
+  .mainPage {
+      padding-left: 205px;
+      display: flex;
+      flex-direction: column;
+  }
+
+  .avatarPic {
+      width: 70%;
+      border-radius: 25px;
+  }
+
+  .reviewImage {
+      width: 15%;
+  }
