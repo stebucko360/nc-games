@@ -21,3 +21,15 @@ export const fetchReviews = (category, pageNum) => {
         return res.data.reviews
     });
 };
+
+export const fetchReviewById = (review_id) => {
+    return ncGamesAPI.get(`/reviews/${review_id}`).then((res)=>{
+        return res.data.review
+    });
+};
+
+export const fetchCommentsById = (review_id) => {
+    return ncGamesAPI.get(`/reviews/${review_id}/comments`).then((res)=>{
+        return res.data.comments
+    });
+};

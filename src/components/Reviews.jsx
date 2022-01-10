@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { useParams } from "react-router-dom";
 import { fetchReviews } from './utils/utils'
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
 export const Reviews = () => {
 
@@ -28,9 +29,11 @@ export const Reviews = () => {
             {reviews.map(review => {
                 return (
                     <>
+                    <Link to={`/review/${review.review_id}`}>
                     <h3>{review.title}</h3>
                     <img className='reviewImage' src={`${review.review_img_url}`}></img>
-                    <p></p>
+                    <p>Author: {review.owner}</p>
+                    </Link>
                     </>
                 )
             })}

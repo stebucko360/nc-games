@@ -5,6 +5,7 @@ import { Header } from './components/Header';
 import { Sidebar } from './components/Sidebar'
 import { Reviews } from './components/Reviews';
 import { HomePage } from './components/HomePage';
+import { SingleReview } from './components/SingleReview';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Routes>
           <Route path='/' element={<HomePage />} />
           <Route path="/reviews/:category_name" element={<Reviews />} />
+          <Route path="/review/:review_id" element={<SingleReview />} />
         </Routes>
       
       </div>
