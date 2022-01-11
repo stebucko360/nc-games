@@ -13,14 +13,13 @@ export const Categories = () => {
     }, [])
 
     return (
-        <div>
-            <nav>
-                <Link to='/'>Home</Link>
-            <p>Review Categories: </p>
+        <div className='categoriesList'>
+            <nav className='cats'>
+                <Link to='/' className='homeButton'>Home</Link> <br/><br/>
                 {categories.map(category=>{
                     return (
                         <>
-                        <Link to={`/reviews/${category.slug}`}>{category.slug}</Link> <br/>
+                        <Link className='indiCat' to={`/reviews/${category.slug}`}>{category.slug.charAt(0).toUpperCase() + category.slug.slice(1)}</Link> <br/><br/>
                         </>
                     )
                 })}

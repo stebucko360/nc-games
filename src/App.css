@@ -1,5 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
 body {
-    margin:0%
+    margin:0%;
+    font-family: 'Lato', sans-serif;
+}
+
+.loginInput {
+    padding-top: 150px;
 }
 
 .homePage {
@@ -8,9 +15,9 @@ body {
 
 .mainPage {
     width: 100%;
-    border-style: solid;
-    border-color: black;
-    border-width: 2px;
+    background-color: #4f5d75;
+    border-bottom: 5px solid #ef8354;
+    color: #BFC0C0;
 }
 
 .pageContents {
@@ -22,10 +29,11 @@ body {
 .sidebar {
     width: 200px;
     height: 100vh;
-    background-color: black;
-    color: white;
+    background-color: #2D3142;
+    color: #BFC0C0;
     margin-right: 0px;
     position: fixed;
+    
   }
 
   .mainPage {
@@ -35,8 +43,41 @@ body {
   }
 
   .avatarPic {
+      margin-left: 30px;
       width: 70%;
-      border-radius: 25px;
+      border-radius: 20%;
+      margin-top: 10px;
+  }
+
+  .logoutButton {
+      text-align: center;
+      margin-left: 70px;
+  }
+
+  .userName {
+      text-align: center;
+      margin-top: 0%;
+      font-size: 0.8cm;
+  }
+
+  .categoriesList {
+      margin-top: 30px;
+      
+  }
+
+  .homeButton {
+      padding-left: 10px;
+      font-size: 1cm;
+      text-decoration: none;
+      color: antiquewhite;
+  }
+
+  .homeButton:hover {
+      color: #ef8354
+  }
+
+  .reviewCat {
+      padding-left: 12px;
   }
 
   .reviewImage {
@@ -46,3 +87,20 @@ body {
   .singleReviewPic {
       width: 30%;
   }
+    .cats {
+    color: #BFC0C0;
+    text-decoration: none;
+    text-align: center;
+    padding-right: 10px;
+    }
+
+  .indiCat {
+    color: #BFC0C0;
+    text-decoration: none;
+    text-align: center;
+  }
+
+  .indiCat:hover {
+    color: #ef8354
+  }
+  

@@ -29,8 +29,8 @@ const handleLogout = () => {
             {isLoggedIn ?  
             <>
             <img className='avatarPic' src={userDetails.avatar_url}></img>
-            <p>{userDetails.username}</p>
-            <button onClick={handleLogout}>Logout</button>
+            <p className='userName'>{userDetails.username}</p>
+            <button className='logoutButton' onClick={handleLogout}>Logout</button>
             </>
             :
              <form className='loginInput' onSubmit={handleSubmit}>
