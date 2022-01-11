@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from "react-router-dom";
-import { fetchReviewById, fetchCommentsById, postCommentByID, patchReviewVotes } from './utils/utils';
+import { fetchReviewById, fetchCommentsById, postCommentByID, patchReviewVotes, patchCommentVote } from './utils/utils';
 
 export const SingleReview = ({userDetails, isLoggedIn}) => {
 
@@ -53,6 +53,31 @@ export const SingleReview = ({userDetails, isLoggedIn}) => {
         })
     };
 
+    const handleCommentVote = (increment, comment_id) => {
+        setComments((currValue)=>{
+            const valAdded = currValue.map(comment=> {
+                if(comment.comment_id === comment_id){
+                    let newComment = {...comment}
+                    newComment.votes += increment
+                    return newComment
+                } else return comment})
+            return valAdded
+        })
+        patchCommentVote(increment, comment_id).catch((err)=>{
+            if (err) {
+                setComments((currValue)=>{
+                    const valAdded = currValue.map(comment=> {
+                        if(comment.comment_id === comment_id){
+                            let newComment = {...comment}
+                            newComment.votes -= increment
+                            return newComment
+                        } else return comment})
+                    return valAdded
+                })
+            }
+        })
+    }
+
     return (
         <div className='homePage'>
             <div className='reviewBody'> {   
@@ -76,6 +101,8 @@ export const SingleReview = ({userDetails, isLoggedIn}) => {
                             <p>{comment.author}</p>
                             <p>{comment.body}</p>
                             <p>{comment.created_at.slice(0, 10)}</p>
+                            <p>Votes: {comment.votes}</p>
+                            <button className='upVote' onClick={()=>{handleCommentVote(1, comment.comment_id)}}>👍</button><button className='downVote' onClick={()=>{handleCommentVote(-1, comment.comment_id)}}>👎</button>
                             </> 
                         )
                     })

@@ -42,7 +42,18 @@ export const postCommentByID = (username, body, review_id) => {
 
 export const patchReviewVotes = (increment, review_id) => {
     return ncGamesAPI.patch(`/reviews/${review_id}`, {inc_votes: increment}).then((res)=>{
-        console.log(res.data)
-        return res.data
-    })
+        return res.data.review
+    });
+};
+
+export const patchCommentVote = (increment, comment_id) => {
+    return ncGamesAPI.patch(`/comments/${comment_id}`, {inc_votes: increment}).then((res)=>{
+        return res.data.comment
+    });
+};
+
+export const postNewReview = (username, category, title, designer, reviewBody) => {
+    return ncGamesAPI.post(`/reviews`, {owner: username, category: category, title: title, designer: designer, review_body: reviewBody}).then((res)=>{
+        return res.data.review
+    });
 }

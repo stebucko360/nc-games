@@ -26,6 +26,12 @@ export const Reviews = () => {
     return (
         <div className='homePage'>
             <h2>{category_name.charAt(0).toUpperCase() + category_name.slice(1)}</h2>
+            <nav>
+                <Link Link to={`/reviews/postNewReview/${category_name}`}>
+                <button>Post A New {category_name} Review</button>
+                </Link>
+            </nav>
+            
             {reviews.map(review => {
                 return (
                     <>

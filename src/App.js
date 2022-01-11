@@ -6,6 +6,7 @@ import { Sidebar } from './components/Sidebar'
 import { Reviews } from './components/Reviews';
 import { HomePage } from './components/HomePage';
 import { SingleReview } from './components/SingleReview';
+import { PostNewReview } from './components/PostNewReview';
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
           <Route path='/' element={<HomePage />} />
           <Route path="/reviews/:category_name" element={<Reviews />} />
           <Route path="/review/:review_id" element={<SingleReview userDetails={userDetails} isLoggedIn={isLoggedIn}/>} />
+          <Route path="/reviews/PostNewReview/:category_name" element={<PostNewReview userDetails={userDetails} isLoggedIn={isLoggedIn}/>}/>
         </Routes>
       
       </div>
