@@ -34,13 +34,15 @@ export const Reviews = () => {
             
             {reviews.map(review => {
                 return (
-                    <>
+                    <div className='reviewObject'>
                     <Link to={`/review/${review.review_id}`}>
                     <h3>{review.title}</h3>
                     <img className='reviewImage' src={`${review.review_img_url}`}></img>
                     <p>Author: {review.owner}</p>
                     </Link>
-                    </>
+                    </div>
+                    
+                    
                 )
             })}
             {pageNumber === 1 ? <button onClick={()=>{handleClick(1)}}>Next Page</button> : 
