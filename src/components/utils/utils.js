@@ -33,3 +33,9 @@ export const fetchCommentsById = (review_id) => {
         return res.data.comments
     });
 };
+
+export const postCommentByID = (username, body, review_id) => {
+    return ncGamesAPI.post(`/reviews/${review_id}/comments`, {username: username, body: body}).then((res)=>{
+        return res.data.review
+    })
+}

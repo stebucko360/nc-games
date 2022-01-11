@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from "react-router-dom";
-import { fetchReviewById, fetchCommentsById } from './utils/utils';
+import { fetchReviewById, fetchCommentsById, postCommentByID } from './utils/utils';
 
-export const SingleReview = () => {
+export const SingleReview = ({userDetails, isLoggedIn}) => {
 
     const { review_id } = useParams();
     const [ review, setReview ] = useState([]);
     const [ comments, setComments ] = useState([]);
-
+    const [ userInput, setUserInput ] = useState('');
+    const [ isError, setIsError ] = useState(false);
+console.log(comments);
     useEffect(()=>{
         fetchReviewById(review_id).then((res)=>{
             setReview(res)
@@ -16,6 +18,25 @@ export const SingleReview = () => {
             setComments(res)
         });
     }, [] );
+
+    const handleSubmit = (event) => {
+        setIsError(false);
+        event.preventDefault();
+        postCommentByID(userDetails.username, userInput, review_id).then((res)=>{
+            setComments((currentComments)=>{
+                let newComments = [...currentComments, res]
+                return newComments
+            })
+        })
+        .catch((err)=>{
+            setIsError(true)
+        })
+        setUserInput("");
+      };
+
+    const handleInputChange = (event) => {
+        setUserInput(event.target.value);
+      };
 
     return (
         <div className='homePage'>
@@ -42,6 +63,15 @@ export const SingleReview = () => {
                         )
                     })
                 }
+                {isError ? <p>Sorry there was an error, please try again</p> : null}
+                <h3>Add Comment : </h3>
+                 { isLoggedIn ? 
+                    <form className='addComment' onSubmit={handleSubmit}>
+                        <input type='text' placeholder='Your comment' onChange={handleInputChange} value={userInput}>
+                        </input>
+                        <button type='submit'>Post Comment</button>
+                    </form> 
+                 : <p>Must be Logged in to comment</p>}
             </div>
             
         </div>

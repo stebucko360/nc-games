@@ -24,7 +24,7 @@ function App() {
         <Routes>
           <Route path='/' element={<HomePage />} />
           <Route path="/reviews/:category_name" element={<Reviews />} />
-          <Route path="/review/:review_id" element={<SingleReview />} />
+          <Route path="/review/:review_id" element={<SingleReview userDetails={userDetails} isLoggedIn={isLoggedIn}/>} />
         </Routes>
       
       </div>
