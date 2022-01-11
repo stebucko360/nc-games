@@ -37,5 +37,12 @@ export const fetchCommentsById = (review_id) => {
 export const postCommentByID = (username, body, review_id) => {
     return ncGamesAPI.post(`/reviews/${review_id}/comments`, {username: username, body: body}).then((res)=>{
         return res.data.review
+    });
+};
+
+export const patchReviewVotes = (increment, review_id) => {
+    return ncGamesAPI.patch(`/reviews/${review_id}`, {inc_votes: increment}).then((res)=>{
+        console.log(res.data)
+        return res.data
     })
 }
