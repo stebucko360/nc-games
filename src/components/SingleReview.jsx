@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from "react-router-dom";
-import { fetchReviewById, fetchCommentsById, postCommentByID, patchReviewVotes, patchCommentVote } from './utils/utils';
+import { fetchReviewById, fetchCommentsById, postCommentByID, patchReviewVotes, patchCommentVote, deleteCommentById } from './utils/utils';
 
 export const SingleReview = ({userDetails, isLoggedIn, setGamesList}) => {
 
@@ -93,6 +93,16 @@ export const SingleReview = ({userDetails, isLoggedIn, setGamesList}) => {
         })
     };
 
+    const deleteComment = (comment_id) => {
+        setComments((currComments)=>{
+            let newComments = currComments.filter(comment=>{
+                return comment.comment_id !== comment_id
+            })
+            return newComments
+        })
+        deleteCommentById(comment_id)
+    };
+
     return (
         <div className='homePage'>
             <div className='reviewBody'> {   
@@ -104,7 +114,7 @@ export const SingleReview = ({userDetails, isLoggedIn, setGamesList}) => {
             <p>Review written by : {review.username}</p>
             <p>Votes : {review.votes}</p>
             <button className='upVote' onClick={()=>{handleClick(1)}}>👍</button><button className='downVote' onClick={()=>{handleClick(-1)}}>👎</button>
-            {isLoggedIn ? <button onClick={handleAddGame}>Add game to your list</button> : null}
+            {isLoggedIn ? <button onClick={()=>{handleAddGame()}}>Add game to your list</button> : null}
             
             </>  
                 } 
@@ -120,6 +130,7 @@ export const SingleReview = ({userDetails, isLoggedIn, setGamesList}) => {
                             <p>{comment.created_at.slice(0, 10)}</p>
                             <p>Votes: {comment.votes}</p>
                             <button className='upVote' onClick={()=>{handleCommentVote(1, comment.comment_id)}}>👍</button><button className='downVote' onClick={()=>{handleCommentVote(-1, comment.comment_id)}}>👎</button>
+                            {comment.author === userDetails.username ? <button onClick={()=>{deleteComment(comment.comment_id)}}>Delete comment</button> : null}
                             </> 
                         )
                     })

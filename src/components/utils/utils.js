@@ -62,4 +62,8 @@ export const postNewReview = (username, category, title, designer, reviewBody) =
     return ncGamesAPI.post(`/reviews`, {owner: username, category: category, title: title, designer: designer, review_body: reviewBody}).then((res)=>{
         return res.data.review
     });
-}
+};
+
+export const deleteCommentById = (comment_id) =>{
+    return ncGamesAPI.delete(`/comments/${comment_id}`)
+};
