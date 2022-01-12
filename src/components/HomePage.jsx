@@ -39,11 +39,11 @@ export const HomePage = ({ userDetails, isLoggedIn, gamesList }) => {
                 <>
                 <div className='mostVotedGame'>
                     <h3>Most Popular Review : </h3>
-                    <p>{reviewsByVotes[0].title}</p>
+                    <h4>{reviewsByVotes[0].title}</h4>
                     <img src={reviewsByVotes[0].review_img_url} width='60%' alt='gameboard'></img>
                     <nav>
                         <Link to={`/review/${reviewsByVotes[0].review_id}`}>
-                            <p>Read this review now!</p>
+                            <p1>Read this review now!</p1>
                         </Link>
                     </nav>
                 </div>
@@ -52,11 +52,11 @@ export const HomePage = ({ userDetails, isLoggedIn, gamesList }) => {
                 </div>
                 <div className='recReview'>
                 <h3>Recommended Review : </h3>
-                    <p>{reviewsByVotes[Math.floor(Math.random() * (reviewsByVotes.length - 0) + 0)].title}</p>
+                    <h4>{reviewsByVotes[Math.floor(Math.random() * (reviewsByVotes.length - 0) + 0)].title}</h4>
                     <img src={reviewsByVotes[Math.floor(Math.random() * (reviewsByVotes.length - 0) + 0)].review_img_url} width='30%' alt='gameboard'></img>
                     <nav>
                         <Link to={`/review/${reviewsByVotes[Math.floor(Math.random() * (reviewsByVotes.length - 0) + 0)].review_id}`}>
-                            <p>Read this review now!</p>
+                            <p1>Read this review now!</p1>
                         </Link>
                     </nav>
                 </div>
