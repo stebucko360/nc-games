@@ -22,6 +22,12 @@ export const fetchReviews = (category, pageNum) => {
     });
 };
 
+export const fetchReviewsByVotes = () => {
+    return ncGamesAPI.get(`/reviews?sort_by=votes`).then((res)=>{
+        return res.data.reviews
+    });
+};
+
 export const fetchReviewById = (review_id) => {
     return ncGamesAPI.get(`/reviews/${review_id}`).then((res)=>{
         return res.data.review

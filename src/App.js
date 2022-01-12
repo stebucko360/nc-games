@@ -23,7 +23,7 @@ function App() {
         <Header/>
         </main>
         <Routes>
-          <Route path='/' element={<HomePage />} />
+          <Route path='/' element={<HomePage userDetails={userDetails} isLoggedIn={isLoggedIn}/>} />
           <Route path="/reviews/:category_name" element={<Reviews />} />
           <Route path="/review/:review_id" element={<SingleReview userDetails={userDetails} isLoggedIn={isLoggedIn}/>} />
           <Route path="/reviews/PostNewReview/:category_name" element={<PostNewReview userDetails={userDetails} isLoggedIn={isLoggedIn}/>}/>
