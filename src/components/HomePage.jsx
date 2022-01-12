@@ -47,8 +47,8 @@ export const HomePage = ({ userDetails, isLoggedIn, gamesList }) => {
                         </Link>
                     </nav>
                 </div>
-                <div>
-                    <img className='boardGamePic' src={boardGames}></img>
+                <div className='boardGamePic'>
+                    <img src={boardGames} width='100%'></img>
                 </div>
                 <div className='recReview'>
                 <h3>Recommended Review : </h3>

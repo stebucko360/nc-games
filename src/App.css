@@ -189,8 +189,8 @@ p1 {
   }
 
   .boardGamePic {
-      width: 95%;
-      height: 97%;
+      width: 47.5%;
+      margin-bottom: 8px;
       box-shadow: 10px 10px 8px #888888;
       border: 3px solid #ef8354;
   }
