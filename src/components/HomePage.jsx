@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { fetchReviewsSortBy } from './utils/utils'
+import boardGames from './pictures/boardgames.jpg'
 import { Link } from "react-router-dom";
 
-export const HomePage = ({ userDetails, isLoggedIn }) => {
+export const HomePage = ({ userDetails, isLoggedIn, gamesList }) => {
 
     const [reviewsByVotes, setReviewsByVotes] = useState([]);
     const [isLoading, setIsLoading] = useState(true)
@@ -23,17 +24,20 @@ export const HomePage = ({ userDetails, isLoggedIn }) => {
                 {isLoading ? <p>Loading contents...</p> :
                 <>
                 <div className='mostVotedGame'>
-                    <h3>Most popular review : </h3>
+                    <h3>Most Popular Review : </h3>
                     <p>{reviewsByVotes[0].title}</p>
-                    <img src={reviewsByVotes[0].review_img_url} width='30%' alt='gameboard'></img>
+                    <img src={reviewsByVotes[0].review_img_url} width='60%' alt='gameboard'></img>
                     <nav>
                         <Link to={`/review/${reviewsByVotes[0].review_id}`}>
                             <p>Read this review now!</p>
                         </Link>
                     </nav>
                 </div>
+                <div>
+                    <img className='boardGamePic' src={boardGames}></img>
+                </div>
                 <div className='recReview'>
-                <h3>Recommended review : </h3>
+                <h3>Recommended Review : </h3>
                     <p>{reviewsByVotes[Math.floor(Math.random() * (reviewsByVotes.length - 0) + 0)].title}</p>
                     <img src={reviewsByVotes[Math.floor(Math.random() * (reviewsByVotes.length - 0) + 0)].review_img_url} width='30%' alt='gameboard'></img>
                     <nav>
@@ -43,7 +47,14 @@ export const HomePage = ({ userDetails, isLoggedIn }) => {
                     </nav>
                 </div>
                 <div className='topUser'>
-                    <p>box 3</p>
+                    <h3>Your Games List :</h3>
+                    <ul>
+                        {gamesList.map(game=>{
+                            return (
+                                <li>{game}</li>
+                            )
+                        })}
+                    </ul>
                 </div>
                 </>
                 }

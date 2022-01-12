@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from "react-router-dom";
 import { fetchReviewById, fetchCommentsById, postCommentByID, patchReviewVotes, patchCommentVote } from './utils/utils';
 
-export const SingleReview = ({userDetails, isLoggedIn}) => {
+export const SingleReview = ({userDetails, isLoggedIn, setGamesList}) => {
 
     const { review_id } = useParams();
     const [ review, setReview ] = useState([]);
@@ -76,7 +76,22 @@ export const SingleReview = ({userDetails, isLoggedIn}) => {
                 })
             }
         })
-    }
+    };
+
+    const handleAddGame = () => {
+        setGamesList((currList)=>{
+            let loops = 0
+            for(let game of currList) {
+                if (game !== review.title) {
+                    loops++
+                }
+            }
+            if (loops === currList.length) {
+                let newList = [...currList, review.title]
+                return newList
+            } else return currList
+        })
+    };
 
     return (
         <div className='homePage'>
@@ -89,6 +104,8 @@ export const SingleReview = ({userDetails, isLoggedIn}) => {
             <p>Review written by : {review.username}</p>
             <p>Votes : {review.votes}</p>
             <button className='upVote' onClick={()=>{handleClick(1)}}>👍</button><button className='downVote' onClick={()=>{handleClick(-1)}}>👎</button>
+            {isLoggedIn ? <button onClick={handleAddGame}>Add game to your list</button> : null}
+            
             </>  
                 } 
             </div>

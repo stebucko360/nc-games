@@ -6,8 +6,9 @@ body {
 }
 
 h2 {
-    font-size: 1cm;
+    font-size: 220%;
 }
+
 
 .loginInput {
     padding-top: 150px;
@@ -123,19 +124,27 @@ h2 {
   }
 
   .mostVotedGame {
-      width: 100%;
-      margin-right:33px;
+      width: 46.5%;
+      margin-right:21px;
   }
 
   .topUser, .recReview {
-      width: 48%;
+      width: 46.5%;
       margin-right: 20px;
   }
 
   .topUser, .mostVotedGame, .recReview {
+    padding-left: 15px;
     background-color: #4f5d753a;
     border: 3px solid #ef8354;
     margin-bottom: 8px;
     text-decoration: none;
     box-shadow: 10px 10px 8px #888888
+  }
+
+  .boardGamePic {
+      width: 95%;
+      height: 97%;
+      box-shadow: 10px 10px 8px #888888;
+      border: 3px solid #ef8354;
   }

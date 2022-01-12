@@ -13,6 +13,7 @@ function App() {
 
   const [userDetails, setUserDetails] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [gamesList, setGamesList] = useState([]);
 
   return (
     <BrowserRouter>
@@ -23,9 +24,9 @@ function App() {
         <Header/>
         </main>
         <Routes>
-          <Route path='/' element={<HomePage userDetails={userDetails} isLoggedIn={isLoggedIn}/>} />
+          <Route path='/' element={<HomePage userDetails={userDetails} isLoggedIn={isLoggedIn} gamesList={gamesList}/>} />
           <Route path="/reviews/:category_name" element={<Reviews />} />
-          <Route path="/review/:review_id" element={<SingleReview userDetails={userDetails} isLoggedIn={isLoggedIn}/>} />
+          <Route path="/review/:review_id" element={<SingleReview userDetails={userDetails} isLoggedIn={isLoggedIn} setGamesList={setGamesList}/>} />
           <Route path="/reviews/PostNewReview/:category_name" element={<PostNewReview userDetails={userDetails} isLoggedIn={isLoggedIn}/>}/>
         </Routes>
       
