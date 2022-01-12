@@ -127,12 +127,13 @@ h2 {
       margin-right:33px;
   }
 
-  .mostCommented, .recReview {
+  .topUser, .recReview {
       width: 48%;
       margin-right: 20px;
   }
 
-  .mostCommented, .mostVotedGame, .recReview {
+  .topUser, .mostVotedGame, .recReview {
+    background-color: #4f5d753a;
     border: 3px solid #ef8354;
     margin-bottom: 8px;
     text-decoration: none;

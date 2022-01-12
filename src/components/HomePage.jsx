@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { fetchReviewsByVotes } from './utils/utils'
+import { fetchReviewsSortBy } from './utils/utils'
 import { Link } from "react-router-dom";
 
 export const HomePage = ({ userDetails, isLoggedIn }) => {
@@ -8,7 +8,7 @@ export const HomePage = ({ userDetails, isLoggedIn }) => {
     const [isLoading, setIsLoading] = useState(true)
     
     useEffect(()=>{
-        fetchReviewsByVotes().then((res)=>{
+        fetchReviewsSortBy('votes').then((res)=>{
             setReviewsByVotes(res)
             setIsLoading(false)
         })
@@ -25,17 +25,24 @@ export const HomePage = ({ userDetails, isLoggedIn }) => {
                 <div className='mostVotedGame'>
                     <h3>Most popular review : </h3>
                     <p>{reviewsByVotes[0].title}</p>
-                    <img src={reviewsByVotes[0].review_img_url} width='400px' alt='gameboard image'></img>
+                    <img src={reviewsByVotes[0].review_img_url} width='30%' alt='gameboard'></img>
                     <nav>
                         <Link to={`/review/${reviewsByVotes[0].review_id}`}>
                             <p>Read this review now!</p>
                         </Link>
                     </nav>
                 </div>
-                <div className='mostCommented'>
-                    <p>box 2</p>
-                </div>
                 <div className='recReview'>
+                <h3>Recommended review : </h3>
+                    <p>{reviewsByVotes[Math.floor(Math.random() * (reviewsByVotes.length - 0) + 0)].title}</p>
+                    <img src={reviewsByVotes[Math.floor(Math.random() * (reviewsByVotes.length - 0) + 0)].review_img_url} width='30%' alt='gameboard'></img>
+                    <nav>
+                        <Link to={`/review/${reviewsByVotes[Math.floor(Math.random() * (reviewsByVotes.length - 0) + 0)].review_id}`}>
+                            <p>Read this review now!</p>
+                        </Link>
+                    </nav>
+                </div>
+                <div className='topUser'>
                     <p>box 3</p>
                 </div>
                 </>
