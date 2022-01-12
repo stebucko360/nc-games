@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { fetchReviewsSortBy } from './utils/utils'
 import boardGames from './pictures/boardgames.jpg'
 import { Link } from "react-router-dom";
+import { CSSTransitionGroup } from 'react-transition-group'
 
 export const HomePage = ({ userDetails, isLoggedIn, gamesList }) => {
 
@@ -19,7 +20,20 @@ export const HomePage = ({ userDetails, isLoggedIn, gamesList }) => {
         <div className='homePage'>
             {isLoggedIn ?
             <>
+            <CSSTransitionGroup 
+           transitionName="welcomeMessage"
+           transitionAppear={true}
+           transitionAppearTimeout={500}
+           transitionEnter={false}
+           transitionLeave={false}>   
             <h2>Welcome {userDetails.username} to your dashboard : </h2>
+            </CSSTransitionGroup>
+            <CSSTransitionGroup 
+           transitionName="dashboard"
+           transitionAppear={true}
+           transitionAppearTimeout={500}
+           transitionEnter={false}
+           transitionLeave={false}>   
             <div className='homePageContents'>
                 {isLoading ? <p>Loading contents...</p> :
                 <>
@@ -59,6 +73,7 @@ export const HomePage = ({ userDetails, isLoggedIn, gamesList }) => {
                 </>
                 }
                 </div> 
+            </CSSTransitionGroup>
             </> 
             
             

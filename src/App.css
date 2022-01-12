@@ -148,3 +148,21 @@ h2 {
       box-shadow: 10px 10px 8px #888888;
       border: 3px solid #ef8354;
   }
+
+  .welcomeMessage-appear {
+    opacity: 0.01;
+  }
+  
+  .welcomeMessage-appear.welcomeMessage-appear-active {
+    opacity: 1;
+    transition: opacity 0.5s ease-in;
+  }
+
+  .dashboard-appear {
+    opacity: 0.01;
+  }
+  
+  .dashboard-appear.dashboard-appear-active {
+    opacity: 1;
+    transition: opacity 1s ease-in;
+  }
