@@ -63,7 +63,10 @@ export const HomePage = ({ userDetails, isLoggedIn, gamesList }) => {
             
             
             :
-            <h2>Welcome to NC Board Game reviews, if yopu wish to post or comment on this site please login</h2>    
+            <>
+            <h2>Welcome to NC Board Game reviews,</h2>
+            <h2> if you wish to post or comment on this site please login</h2>
+            </> 
         }
         </div>
     )
