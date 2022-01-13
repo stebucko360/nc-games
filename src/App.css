@@ -10,7 +10,7 @@ body {
 
 h1 {
   font-family: 'Permanent Marker', cursive;
-  font-size: 250%;
+  font-size: 180%;
   color: white;
   -webkit-text-stroke-width: 2px;
   -webkit-text-stroke-color: black;
@@ -20,36 +20,41 @@ h1 {
 }
 
 h2 {
-    font-size: 220%;
+    font-size: 100%;
     font-family: 'Russo One', sans-serif;
     
 }
 
 h3 {
-  font-size: 200%;
+  font-size: 100%;
   margin-top: 1%;
   font-family: 'Russo One', sans-serif;
   
 }
 
 h4 {
-  font-size: 180%;
+  font-size: 100%;
   margin-bottom: 0%;
 }
 
 p1 {
-  font-size: 150%;
+  font-size: 100%;
   text-decoration: none;
 }
 
 
 .loginInput {
-    padding-top: 150px;
+    padding-top: 10px;
+}
+
+.loginbar {
+  width: 85%;
 }
 
 .homePage {
-    padding-left: 220px;
+    padding-left: 30vw;
     width: 100%;
+    height: 100vh;
 }
 
 .mainPage {
@@ -67,7 +72,7 @@ p1 {
 }
 
 .sidebar {
-    width: 200px;
+    width: 25vw;
     height: 100vh;
     background-color: #273043;
     border-right:2px solid #ef8354 ;
@@ -78,13 +83,13 @@ p1 {
   }
 
   .mainPage {
-      padding-left: 205px;
+      padding-left: 28vw;
       display: flex;
       flex-direction: column;
   }
 
   .avatarPic {
-      margin-left: 30px;
+      margin-left: 3vw;
       width: 70%;
       border-radius: 20%;
       margin-top: 10px;
@@ -92,10 +97,11 @@ p1 {
 
   .logoutButton {
       text-align: center;
-      margin-left: 70px;
       background: none;
       border-style: none;
-      font-size: 120%;
+      font-size: 80%;
+      align-items: center;
+      padding-left: 7vw;
   }
 
   .userName {
@@ -103,7 +109,7 @@ p1 {
       text-align: center;
       margin-top: 0%;
       margin-bottom: 0%;
-      font-size: 150%;
+      font-size: 100%;
       font-family: 'Russo One', sans-serif;
   }
 
@@ -118,7 +124,7 @@ p1 {
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: black;
       padding-left: 6px;
-      font-size: 150%;
+      font-size: 110%;
       text-decoration: none;
   }
 
@@ -144,7 +150,8 @@ p1 {
     }
 
   .indiCat {
-    font-size: 140%;
+    font-size: 110%;
+    padding-left: 1vw;
     color: white;
     font-family: 'Permanent Marker', cursive;
     -webkit-text-stroke-width: 2px;
@@ -159,6 +166,7 @@ p1 {
 
   .reviewObject{
       border: 3px solid #ef8354;
+      margin-right: 10px;
       margin-bottom: 8px;
       text-decoration: none;
       box-shadow: 10px 10px 8px #888888
@@ -171,12 +179,12 @@ p1 {
   }
 
   .mostVotedGame {
-      width: 46.5%;
-      margin-right:21px;
+      width: 60vw;
+      margin-right:1px;
   }
 
   .topUser, .recReview {
-      width: 46.5%;
+    width: 60vw;
       margin-right: 20px;
   }
 
@@ -186,15 +194,10 @@ p1 {
     border: 3px solid #ef8354;
     margin-bottom: 8px;
     text-decoration: none;
-    box-shadow: 10px 10px 8px #888888
+    box-shadow: 10px 10px 8px #888888;
+    padding-right: 3px;
   }
 
-  .boardGamePic {
-      width: 47.5%;
-      margin-bottom: 8px;
-      box-shadow: 10px 10px 8px #888888;
-      border: 3px solid #ef8354;
-  }
 
   .welcomeMessage-appear {
     opacity: 0.01;

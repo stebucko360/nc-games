@@ -4,7 +4,7 @@ import { fetchUserByName } from './utils/utils'
 
 export const Sidebar = ({setUserDetails, userDetails, setIsLoggedIn, isLoggedIn}) => {
 
-const [ userInput, setUserInput ] = useState('');
+const [ userInput, setUserInput ] = useState('tickle122');
 
 const handleSubmit = (event) => {
     event.preventDefault();
@@ -34,7 +34,7 @@ const handleLogout = () => {
             </>
             :
              <form className='loginInput' onSubmit={handleSubmit}>
-                <input type='text' placeholder='Enter username' onChange={handleInputChange} value={userInput}>
+                <input className='loginbar' type='text' placeholder='username' onChange={handleInputChange} value={userInput}>
                 </input>
                 <button type='submit'>Login</button>
             </form>
