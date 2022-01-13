@@ -28,7 +28,7 @@ export const PostNewReview = ({userDetails, isLoggedIn}) => {
                 <label for='designer'>Enter the game designer : </label><br/>
                 <input type='text' id='designer'></input> <br/>
                 <label for='review_body'>Write your review for this game : </label><br/>
-                <input type='text' id='review_body'></input> <br/>
+                <textarea id='reviewBody' name='reviewBody' rows='5' cols='30'></textarea> <br/>
                 <button type='submit'> Post review</button>
             </form> : <p>Must be logged in to post a comment</p>}
             {commentPosted ? <p>Review Posted Successfully</p> : null}

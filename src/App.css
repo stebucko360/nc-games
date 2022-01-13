@@ -26,7 +26,7 @@ h2 {
 }
 
 h3 {
-  font-size: 100%;
+  font-size: 90%;
   margin-top: 1%;
   font-family: 'Russo One', sans-serif;
   
@@ -52,7 +52,7 @@ p1 {
 }
 
 .homePage {
-    padding-left: 30vw;
+    padding-left: 31vw;
     width: 100%;
     height: 100vh;
 }
@@ -72,7 +72,8 @@ p1 {
 }
 
 .sidebar {
-    width: 25vw;
+    width: 28vw; 
+    max-width:240px; 
     height: 100vh;
     background-color: #273043;
     border-right:2px solid #ef8354 ;
@@ -118,6 +119,7 @@ p1 {
       
   }
 
+
   .homeButton {
     color: white;
     font-family: 'Permanent Marker', cursive;
@@ -137,11 +139,11 @@ p1 {
   }
 
   .reviewImage {
-      width: 15%;
+      width: 50%;
   }
 
   .singleReviewPic {
-      width: 30%;
+      width: 80%;
   }
     .cats {
     text-decoration: none;
@@ -196,6 +198,10 @@ p1 {
     text-decoration: none;
     box-shadow: 10px 10px 8px #888888;
     padding-right: 3px;
+  }
+
+  .errorpage {
+    padding-left: 27vw;
   }
 
 

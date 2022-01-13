@@ -23,9 +23,9 @@ export const Categories = () => {
                     transitionLeaveTimeout={300}>
                     {categories.map(category=>{
                     return (
-                        <>
+                        <React.Fragment  key={category.slug}>
                         <Link className='indiCat' to={`/reviews/${category.slug}`}>{category.slug.charAt(0).toUpperCase() + category.slug.slice(1)}</Link> <br/><br/>
-                        </>
+                        </React.Fragment>
                     )
                 })}
         </CSSTransitionGroup>

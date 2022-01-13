@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { fetchReviewsSortBy } from './utils/utils'
-import boardGames from './pictures/boardgames.jpg'
 import { Link } from "react-router-dom";
 import { CSSTransitionGroup } from 'react-transition-group'
 

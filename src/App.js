@@ -7,6 +7,7 @@ import { Reviews } from './components/Reviews';
 import { HomePage } from './components/HomePage';
 import { SingleReview } from './components/SingleReview';
 import { PostNewReview } from './components/PostNewReview';
+import { ErrorPage } from './components/ErrorPage';
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
           <Route path="/reviews/:category_name" element={<Reviews />} />
           <Route path="/review/:review_id" element={<SingleReview userDetails={userDetails} isLoggedIn={isLoggedIn} setGamesList={setGamesList}/>} />
           <Route path="/reviews/PostNewReview/:category_name" element={<PostNewReview userDetails={userDetails} isLoggedIn={isLoggedIn}/>}/>
+          <Route path="/*" element={<ErrorPage/>} />
         </Routes>
       
       </div>
