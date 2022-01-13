@@ -25,7 +25,7 @@ export const HomePage = ({ userDetails, isLoggedIn, gamesList }) => {
            transitionAppearTimeout={500}
            transitionEnter={false}
            transitionLeave={false}>   
-            <h2>Welcome {userDetails.username} to your dashboard : </h2>
+            <h2 className='welcomeDash'>Welcome {userDetails.username} to your dashboard : </h2>
             </CSSTransitionGroup>
             <CSSTransitionGroup 
            transitionName="dashboard"

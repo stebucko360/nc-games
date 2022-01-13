@@ -7,8 +7,10 @@ export const SingleReview = ({userDetails, isLoggedIn, setGamesList}) => {
 
     const { review_id } = useParams();
     const [ review, setReview ] = useState([]);
+    const [ isError, setIsError ] = useState(false);
 
     useEffect(()=>{
+        setIsError(false)
         fetchReviewById(review_id).then((res)=>{
             setReview(res)
         });
@@ -16,12 +18,14 @@ export const SingleReview = ({userDetails, isLoggedIn, setGamesList}) => {
     }, [review_id] );
 
     const handleClick = (increment) => {
+        setIsError(false)
         setReview((currValue)=>{
             let newValue = {...currValue}
             newValue.votes += increment
             return newValue
         })
         patchReviewVotes(increment, review_id).catch((err)=>{
+            setIsError(true)
             setReview((currValue)=>{
                 let newValue = {...currValue}
                 newValue.votes -= increment
@@ -55,6 +59,7 @@ export const SingleReview = ({userDetails, isLoggedIn, setGamesList}) => {
             <p>{review.review_body}</p>
             <p>Review written by : {review.username}</p>
             <p>Votes : {review.votes}</p>
+            {isError ? <p>Sorry, there seems to be an issue, try again</p> : null}
             <button className='upVote' onClick={()=>{handleClick(1)}}>👍</button><button className='downVote' onClick={()=>{handleClick(-1)}}>👎</button>
             {isLoggedIn ? <button onClick={()=>{handleAddGame()}}>Add game to your list</button> : null}
             

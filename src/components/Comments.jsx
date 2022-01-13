@@ -34,6 +34,7 @@ export const Comments = ({ userDetails, isLoggedIn, setGamesList, review_id, set
 
 
     const handleCommentVote = (increment, comment_id) => {
+        setIsError(false);
         setComments((currValue)=>{
             const valAdded = currValue.map(comment=> {
                 if(comment.comment_id === comment_id){
@@ -45,6 +46,7 @@ export const Comments = ({ userDetails, isLoggedIn, setGamesList, review_id, set
         })
         patchCommentVote(increment, comment_id).catch((err)=>{
             if (err) {
+                setIsError(true)
                 setComments((currValue)=>{
                     const valAdded = currValue.map(comment=> {
                         if(comment.comment_id === comment_id){

@@ -8,10 +8,12 @@ export const Reviews = () => {
     const { category_name } = useParams();
     const [reviews, setReviews] = useState([]);
     const [pageNumber, setPageNumber] = useState(1);
+    const [isLoading, setIsLoading] = useState(true)
 
     useEffect(()=>{
         fetchReviews(category_name, pageNumber).then((res)=>{
             setReviews(res)
+            setIsLoading(false)
         })
     }, [category_name, pageNumber]);
 
@@ -31,8 +33,8 @@ export const Reviews = () => {
                 <button>Post A New {category_name} Review</button>
                 </Link>
             </nav>
-            
-            {reviews.map(review => {
+            {isLoading ? <p>Loading page contents, shouldn't be long!</p> :
+            reviews.map(review => {
                 return (
                     <div className='reviewObject'>
                     <Link to={`/review/${review.review_id}`}>
@@ -40,11 +42,10 @@ export const Reviews = () => {
                     <img className='reviewImage' src={`${review.review_img_url}`} alt='game board'></img>
                     <p>Author: {review.owner}</p>
                     </Link>
-                    </div>
-                    
-                    
+                    </div>   
                 )
-            })}
+            })
+        }
             {pageNumber === 1 ? <button onClick={()=>{handleClick(1)}}>Next Page</button> : 
             <>
             <button onClick={()=>{handleClick(-1)}}>Previous Page</button>
