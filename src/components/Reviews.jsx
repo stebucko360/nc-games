@@ -34,17 +34,19 @@ export const Reviews = () => {
                 </Link>
             </nav>
             {isLoading ? <p>Loading page contents, shouldn't be long!</p> :
-            reviews.map(review => {
-                return (
-                    <div className='reviewObject'>
-                    <Link to={`/review/${review.review_id}`}>
-                    <h3>{review.title}</h3>
-                    <img className='reviewImage' src={`${review.review_img_url}`} alt='game board'></img>
-                    <p>Author: {review.owner}</p>
-                    </Link>
-                    </div>   
-                )
-            })
+            <div className='reviewCardList'>
+               { reviews.map(review => {
+                    return (
+                        <div className='reviewObject'>
+                        <Link to={`/review/${review.review_id}`}>
+                        <h3>{review.title}</h3>
+                        <img className='reviewImage' src={`${review.review_img_url}`} alt='game board'></img>
+                        <p>Author: {review.owner}</p>
+                        </Link>
+                        </div>   
+                    )
+                })}
+            </div>
         }
             {pageNumber === 1 ? <button onClick={()=>{handleClick(1)}}>Next Page</button> : 
             <>
