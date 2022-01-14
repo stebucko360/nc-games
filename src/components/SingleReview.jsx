@@ -36,7 +36,7 @@ export const SingleReview = ({userDetails, isLoggedIn, setGamesList}) => {
     return (
         <div className='homePage'>
             <div className='reviewBody'> {   
-            <>
+            <div key={review.title}>
             <h2>{review.title}</h2>
             <img className='singleReviewPic' src={review.review_img_url} alt='gameboard'></img>
             <p>Designer : {review.designer}</p>
@@ -45,7 +45,7 @@ export const SingleReview = ({userDetails, isLoggedIn, setGamesList}) => {
             <p>Votes : {review.votes}</p>
             <VoteButtons setReview={setReview} review_id={review_id}/>
             {isLoggedIn ? <button onClick={()=>{handleAddGame()}}>Add game to your list</button> : null}
-            </>  
+            </div>  
             } 
             </div>
             <Comments userDetails={userDetails} isLoggedIn={isLoggedIn} setGamesList={setGamesList} review_id={review_id} setReview={setReview}/>

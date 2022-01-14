@@ -73,18 +73,18 @@ export const Comments = ({ userDetails, isLoggedIn, setGamesList, review_id, set
 
     return (
         <div>
-                <h3>Comments : </h3>
+                <h3 className='addComment'>Comments : </h3>
                 {
                     comments.map(comment=>{
                         return (
-                            <>
-                            <p>{comment.author}</p>
+                            <div key={comment.comment_id}>
+                            <p className='authorComment'>{comment.author}</p>
                             <p>{comment.body}</p>
                             <p>{comment.created_at.slice(0, 10)}</p>
                             <p>Votes: {comment.votes}</p>
                             <button className='upVote' onClick={()=>{handleCommentVote(1, comment.comment_id)}}>👍</button><button className='downVote' onClick={()=>{handleCommentVote(-1, comment.comment_id)}}>👎</button>
                             {comment.author === userDetails.username ? <button onClick={()=>{deleteComment(comment.comment_id)}}>Delete comment</button> : null}
-                            </> 
+                            </div> 
                         )
                     })
                 }

@@ -42,7 +42,7 @@ export const HomePage = ({ userDetails, isLoggedIn, gamesList }) => {
                     <img src={reviewsByVotes[0].review_img_url} width='70%' alt='gameboard'></img>
                     <nav>
                         <Link to={`/review/${reviewsByVotes[0].review_id}`}>
-                            <p1>Read this review now!</p1>
+                            <p>Read this review now!</p>
                         </Link>
                     </nav>
                 </div>
@@ -52,7 +52,7 @@ export const HomePage = ({ userDetails, isLoggedIn, gamesList }) => {
                     <img src={reviewsByVotes[Math.floor(Math.random() * (reviewsByVotes.length - 0) + 0)].review_img_url} width='70%' alt='gameboard'></img>
                     <nav>
                         <Link to={`/review/${reviewsByVotes[Math.floor(Math.random() * (reviewsByVotes.length - 0) + 0)].review_id}`}>
-                            <p1>Read this review now!</p1>
+                            <p>Read this review now!</p>
                         </Link>
                     </nav>
                 </div>

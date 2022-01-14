@@ -39,11 +39,9 @@ h4 {
   margin-bottom: 0%;
 }
 
-p1 {
-  font-size: 100%;
+p {
   text-decoration: none;
 }
-
 
 .loginInput {
     padding-top: 10px;
@@ -204,6 +202,15 @@ p1 {
     text-decoration: none;
     box-shadow: 10px 10px 8px #888888;
     padding-right: 3px;
+  }
+
+  .addComment {
+    border-top: 2px solid #ef8354;
+    padding-top: 10px;
+  }
+
+  .authorComment {
+    border-top: 1px dashed #ef8354;
   }
 
   .errorpage {

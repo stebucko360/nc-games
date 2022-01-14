@@ -16,8 +16,8 @@ export const fetchCategories = () => {
     });
 };
 
-export const fetchReviews = (category, pageNum) => {
-    return ncGamesAPI.get(`/reviews?category=${category}&limit=4&page=${pageNum}`).then((res)=>{
+export const fetchReviews = (category, pageNum, sort_by) => {
+    return ncGamesAPI.get(`/reviews?category=${category}&limit=4&page=${pageNum}&sort_by=${sort_by}`).then((res)=>{
         return res.data.reviews
     });
 };
