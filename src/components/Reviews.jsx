@@ -41,6 +41,7 @@ export const Reviews = () => {
             </nav>
             <form>
                 <select value="sort_selection" name="sort_selection" onChange={optionChosen}>
+                    <option value='default'>sort by: {sort_by}</option>
                     <option value="review_id">Review ID</option>
                     <option value="title">Title</option>
                     <option value="owner">Author</option>
