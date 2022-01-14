@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from "react-router-dom";
 import { Comments } from './Comments';
-import { fetchReviewById, patchReviewVotes } from './utils/utils';
+import { fetchReviewById } from './utils/utils';
+import { VoteButtons } from './VoteButtons';
 
 export const SingleReview = ({userDetails, isLoggedIn, setGamesList}) => {
 
@@ -16,23 +17,6 @@ export const SingleReview = ({userDetails, isLoggedIn, setGamesList}) => {
         });
         
     }, [review_id] );
-
-    const handleClick = (increment) => {
-        setIsError(false)
-        setReview((currValue)=>{
-            let newValue = {...currValue}
-            newValue.votes += increment
-            return newValue
-        })
-        patchReviewVotes(increment, review_id).catch((err)=>{
-            setIsError(true)
-            setReview((currValue)=>{
-                let newValue = {...currValue}
-                newValue.votes -= increment
-                return newValue
-            })
-        })
-    };
 
     const handleAddGame = () => {
         setGamesList((currList)=>{
@@ -59,12 +43,10 @@ export const SingleReview = ({userDetails, isLoggedIn, setGamesList}) => {
             <p>{review.review_body}</p>
             <p>Review written by : {review.username}</p>
             <p>Votes : {review.votes}</p>
-            {isError ? <p>Sorry, there seems to be an issue, try again</p> : null}
-            <button className='upVote' onClick={()=>{handleClick(1)}}>👍</button><button className='downVote' onClick={()=>{handleClick(-1)}}>👎</button>
+            <VoteButtons setReview={setReview} review_id={review_id}/>
             {isLoggedIn ? <button onClick={()=>{handleAddGame()}}>Add game to your list</button> : null}
-            
             </>  
-                } 
+            } 
             </div>
             <Comments userDetails={userDetails} isLoggedIn={isLoggedIn} setGamesList={setGamesList} review_id={review_id} setReview={setReview}/>
             

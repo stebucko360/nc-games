@@ -54,7 +54,7 @@ p1 {
 }
 
 .homePage {
-    padding-left: max(28vw, 30vw);
+    padding-left: min(30vw, 250px);
     width: 100%;
     height: 100vh;
 }
