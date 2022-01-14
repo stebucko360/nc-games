@@ -54,10 +54,13 @@ export const Reviews = () => {
                     return (
                         <div className='reviewObject' key={review.review_id}>
                         <Link to={`/review/${review.review_id}`}>
-                        <h3>{review.title}</h3>
-                        <img className='reviewImage' src={`${review.review_img_url}`} alt='game board'></img>
-                        <p>Author: {review.owner}</p>
-                        <p>Votes: {review.votes}</p>
+                            <div className='reviewCardContents'>
+                                <h3>{review.title}</h3>
+                                <img className='reviewImage' src={`${review.review_img_url}`} alt='game board'></img>
+                                <p>Author: {review.owner}</p>
+                                <p>Votes: {review.votes}</p>  
+                            </div>
+                        
                         </Link>
                         </div>   
                     )

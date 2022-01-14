@@ -80,7 +80,7 @@ export const Comments = ({ userDetails, isLoggedIn, setGamesList, review_id, set
                             <div key={comment.comment_id}>
                             <p className='authorComment'>{comment.author}</p>
                             <p>{comment.body}</p>
-                            <p>{comment.created_at.slice(0, 10)}</p>
+                            <p className='commentDate'>{comment.created_at.slice(0, 10)}</p>
                             <p>Votes: {comment.votes}</p>
                             <button className='upVote' onClick={()=>{handleCommentVote(1, comment.comment_id)}}>👍</button><button className='downVote' onClick={()=>{handleCommentVote(-1, comment.comment_id)}}>👎</button>
                             {comment.author === userDetails.username ? <button onClick={()=>{deleteComment(comment.comment_id)}}>Delete comment</button> : null}
@@ -97,6 +97,9 @@ export const Comments = ({ userDetails, isLoggedIn, setGamesList, review_id, set
                         <button type='submit'>Post Comment</button>
                     </form> 
                  : <p>Must be Logged in to comment</p>}
+                 <br/>
+                 <br/>
+                 <br/>
             </div>
     )
 }
