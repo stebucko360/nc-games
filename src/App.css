@@ -64,6 +64,9 @@ p {
     background-position: 0px -110px;
     border-bottom: 5px solid #ef8354;
     color: #BFC0C0;
+    padding-left: min(30vw, 260px);
+      display: flex;
+      flex-direction: column;
 }
 
 .pageContents {
@@ -84,11 +87,6 @@ p {
     
   }
 
-  .mainPage {
-      padding-left: 28vw;
-      display: flex;
-      flex-direction: column;
-  }
 
   .avatarPic {
       margin-left: min(3vw, 50px);
