@@ -1,17 +1,19 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useContext } from 'react'
 import { Categories } from './Categories';
 import { fetchUserByName } from './utils/utils'
+import { UserDetailsContext } from './contexts/userDetails';
 
-export const Sidebar = ({setUserDetails, userDetails, setIsLoggedIn, isLoggedIn}) => {
+export const Sidebar = ({ setIsLoggedIn, isLoggedIn}) => {
 
 const [ userInput, setUserInput ] = useState('tickle122');
+const { userDetails, setUserDetails } = useContext(UserDetailsContext);
 
 const handleSubmit = (event) => {
     event.preventDefault();
     fetchUserByName(userInput).then((result)=>{
         setUserDetails(result)
+        setIsLoggedIn(true);
     });
-    setIsLoggedIn(true);
     setUserInput("");
   };
 
@@ -28,7 +30,7 @@ const handleLogout = () => {
         <div className='sidebar'>
             {isLoggedIn ?  
             <>
-            <img className='avatarPic' src={userDetails.avatar_url}></img>
+            <img className='avatarPic' src={userDetails.avatar_url} alt='userpic'></img>
             <p className='userName'>{userDetails.username}</p>
             <button className='logoutButton' onClick={handleLogout}>Logout</button>
             </>

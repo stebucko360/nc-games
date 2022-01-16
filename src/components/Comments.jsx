@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { fetchCommentsById, postCommentByID, patchCommentVote, deleteCommentById } from './utils/utils';
+import { UserDetailsContext } from './contexts/userDetails';
 
-export const Comments = ({ userDetails, isLoggedIn, setGamesList, review_id, setReview }) => {
+export const Comments = ({ isLoggedIn, setGamesList, review_id, setReview }) => {
 
     const [ comments, setComments ] = useState([]);
     const [ userInput, setUserInput ] = useState('');
     const [ isError, setIsError ] = useState(false);
+    const { userDetails } = useContext(UserDetailsContext);
 
     useEffect(()=>{
         fetchCommentsById(review_id).then((res)=>{

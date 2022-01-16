@@ -1,12 +1,14 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import { useParams } from "react-router-dom";
 import { postNewReview } from './utils/utils';
+import { UserDetailsContext } from './contexts/userDetails';
 
-export const PostNewReview = ({userDetails, isLoggedIn}) => {
+export const PostNewReview = ({ isLoggedIn }) => {
 
     const { category_name } = useParams();
     const [ commentPosted, setCommentPosted ] = useState(false);
-
+    const { userDetails } = useContext(UserDetailsContext);
+    
     const handleSubmit = (event) => {
         setCommentPosted(false)
         const title = event.target[0].value

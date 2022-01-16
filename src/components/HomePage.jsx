@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { fetchReviewsSortBy } from './utils/utils'
 import { Link } from "react-router-dom";
 import { CSSTransitionGroup } from 'react-transition-group'
+import { UserDetailsContext } from './contexts/userDetails';
 
-export const HomePage = ({ userDetails, isLoggedIn, gamesList }) => {
+export const HomePage = ({ isLoggedIn, gamesList }) => {
 
     const [reviewsByVotes, setReviewsByVotes] = useState([]);
     const [isLoading, setIsLoading] = useState(true)
+    const { userDetails } = useContext(UserDetailsContext);
     
     useEffect(()=>{
         fetchReviewsSortBy('votes').then((res)=>{

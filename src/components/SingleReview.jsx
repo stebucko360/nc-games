@@ -1,14 +1,16 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { useParams } from "react-router-dom";
 import { Comments } from './Comments';
 import { fetchReviewById } from './utils/utils';
 import { VoteButtons } from './VoteButtons';
+import { UserDetailsContext } from './contexts/userDetails';
 
-export const SingleReview = ({userDetails, isLoggedIn, setGamesList}) => {
+export const SingleReview = ({ isLoggedIn, setGamesList }) => {
 
     const { review_id } = useParams();
     const [ review, setReview ] = useState([]);
     const [ isError, setIsError ] = useState(false);
+    const { userDetails } = useContext(UserDetailsContext);
 
     useEffect(()=>{
         setIsError(false)
