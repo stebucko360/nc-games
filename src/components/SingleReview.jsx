@@ -9,13 +9,16 @@ export const SingleReview = ({ isLoggedIn, setGamesList }) => {
 
     const { review_id } = useParams();
     const [ review, setReview ] = useState([]);
+    const [ isLoading, setIsLoading ] = useState(false);
     const [ isError, setIsError ] = useState(false);
     const { userDetails } = useContext(UserDetailsContext);
 
     useEffect(()=>{
+        setIsLoading(true)
         setIsError(false)
         fetchReviewById(review_id).then((res)=>{
             setReview(res)
+            setIsLoading(false)
         }).catch((err)=>{
             setIsError(true)
         })
@@ -40,6 +43,7 @@ export const SingleReview = ({ isLoggedIn, setGamesList }) => {
     return (
         <div className='homePage'>
             {isError ? <p>Sorry, there seems to be an error, try again!</p> : 
+            isLoading ? <p> Loading contents... </p> :
             <>
             <div className='reviewBody'> {   
             <div key={review.title}>
