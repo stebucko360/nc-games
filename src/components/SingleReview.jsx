@@ -16,7 +16,9 @@ export const SingleReview = ({ isLoggedIn, setGamesList }) => {
         setIsError(false)
         fetchReviewById(review_id).then((res)=>{
             setReview(res)
-        });
+        }).catch((err)=>{
+            setIsError(true)
+        })
         
     }, [review_id] );
 
@@ -37,6 +39,8 @@ export const SingleReview = ({ isLoggedIn, setGamesList }) => {
 
     return (
         <div className='homePage'>
+            {isError ? <p>Sorry, there seems to be an error, try again!</p> : 
+            <>
             <div className='reviewBody'> {   
             <div key={review.title}>
             <h2>{review.title}</h2>
@@ -51,6 +55,8 @@ export const SingleReview = ({ isLoggedIn, setGamesList }) => {
             } 
             </div>
             <Comments userDetails={userDetails} isLoggedIn={isLoggedIn} setGamesList={setGamesList} review_id={review_id} setReview={setReview}/>
+            </>
+            }
             
         </div>
     )
